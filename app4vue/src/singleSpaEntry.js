@@ -4,10 +4,13 @@ import App from './App.vue'
 
 Vue.config.productionTip = false;
 
+const time = new Date().getTime()
+const id = 'app4'
+
 const vueLifecycles = singleSpaVue({
     Vue,
     appOptions: {
-        el: '#app4',
+        el: '#' + id,
         render: h => h(App)
 }
 });
@@ -27,11 +30,14 @@ export const unmount = [
 
 function createDomElement() {
     // Make sure there is a div for us to render into
-    let el = document.getElementById('app4');
+    let el = document.getElementById(id);
+
+    console.log("createDomElement: app4 ");
 
     if (!el) {
+        console.log("CreateElement: " + id);
         el = document.createElement('div');
-        el.id = 'app4';
+        el.id = id;
         document.body.appendChild(el);
     }
     return el;
