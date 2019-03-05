@@ -1,13 +1,17 @@
-import es6promise from 'es6-promise/auto'
+import 'es6-promise/auto';
+import 'core-js/es7/object';
+import 'core-js/es7/array';
 import Vue from 'vue'
 import App from './App.vue'
-// import init from './portal'
+import router from './router'
+
+console.log("portal - main.js");
 
 Vue.config.productionTip = false
 
 new Vue({
+  router,
   render: (h) => {
-    // init();
     return h(App)
-  },
+  }
 }).$mount('#app')

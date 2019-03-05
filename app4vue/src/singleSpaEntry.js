@@ -4,41 +4,28 @@ import App from './App.vue'
 
 Vue.config.productionTip = false;
 
-const time = new Date().getTime()
-const id = 'app4'
-
-const vueLifecycles = singleSpaVue({
-    Vue,
-    appOptions: {
-        el: '#' + id,
-        render: h => h(App)
+export function bootstrap(props) {
+    console.log('app4vue: bootstrap', props.globalEventDistributor);
+    return Promise.resolve();
 }
-});
-
-export const bootstrap = [
-    vueLifecycles.bootstrap,
-];
 
 export function mount(props) {
-    createDomElement();
+    console.log('app4vue: mount', props.globalEventDistributor);
+    const vueLifecycles = singleSpaVue({
+        Vue,
+        appOptions: {
+            el: '#' + props.globalEventDistributor,
+            render: h => {
+                console.log("app4vue: vue: render:" + props.globalEventDistributor);
+                return h(App);
+            }
+        }
+    });
+
     return vueLifecycles.mount(props);
 }
 
-export const unmount = [
-    vueLifecycles.unmount,
-];
-
-function createDomElement() {
-    // Make sure there is a div for us to render into
-    let el = document.getElementById(id);
-
-    console.log("createDomElement: app4 ");
-
-    if (!el) {
-        console.log("CreateElement: " + id);
-        el = document.createElement('div');
-        el.id = id;
-        document.body.appendChild(el);
-    }
-    return el;
+export function unmount(props) {
+    console.log('app4vue: unmount', props.globalEventDistributor);
+    return Promise.resolve();
 }

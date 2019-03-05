@@ -1,4 +1,9 @@
-import 'zone.js';
+// import * as SystemJS from 'systemjs/dist/extras/global.js';
+// import 'systemjs/dist/s'
+// import 'core-js/es7'
+// import 'core-js/es7/object'
+// import 'core-js/es7/array'
+// import 'zone.js';
 import * as singleSpa from 'single-spa';
 import { GlobalEventDistributor } from './globalEventDistributor'
 import { loadApp } from './helper'
@@ -17,16 +22,16 @@ async function init() {
     // loadingPromises.push(loadApp('app3', '/app3', '/app3/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
 
     // loadingPromises.push(loadApp('appAlpha', '/app4', '/appAlpha/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
-    loadingPromises.push(loadApp('appGame', '/app4', '/appGame/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
+    // loadingPromises.push(loadApp('appGame', '/app4', '/appGame/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
 
-    loadingPromises.push(loadApp('appGame2', '/appGame', '/appGame/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
+    // loadingPromises.push(loadApp('appGame2', '/appGame', '/appGame/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
 
-    loadingPromises.push(loadApp('appBeta', '/app4', '/appBeta/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
+    // loadingPromises.push(loadApp('appBeta', '/app4', '/appBeta/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
 
-    loadingPromises.push(loadApp('appCharlie', '/app4', '/appCharlie/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
+    // loadingPromises.push(loadApp('appCharlie', '/app4', '/appCharlie/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
 
     // app3: The URL "/app4/..." is being redirected to "http://localhost:9004/..." this is done by the webpack proxy (webpack.config.js)
-    loadingPromises.push(loadApp('app4', '/app4', '/app4/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
+    // loadingPromises.push(loadApp('app4', '/app4', '/app4/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
     // loadingPromises.push(loadApp('app5', '/app4', '/app4/singleSpaEntry.js', null, null)); // does not have a store, so we pass null
 
 

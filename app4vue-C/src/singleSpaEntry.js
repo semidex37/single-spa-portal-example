@@ -6,40 +6,31 @@ import store from './store'
 
 Vue.config.productionTip = false;
 
-const time = new Date().getTime()
-const id = 'appCharlie'
-
-const vueLifecycles = singleSpaVue({
-    Vue,
-    appOptions: {
-        el: '#' + id,
-        router,
-        store,
-        render: h => h(App)
+export function bootstrap(props) {
+    console.log('app4vue-C: bootstrap', props.globalEventDistributor);
+    return Promise.resolve();
 }
-});
-
-export const bootstrap = [
-    vueLifecycles.bootstrap,
-];
 
 export function mount(props) {
-    createDomElement();
+    console.log('app4vue-C: mount', props.globalEventDistributor);
+
+    const vueLifecycles = singleSpaVue({
+        Vue,
+        appOptions: {
+            el: '#' + props.globalEventDistributor,
+            router,
+            store,
+            render: h => {
+                console.log("app4vue-C: vue: render:" + props.globalEventDistributor);
+                return h(App);
+            }
+        }
+    });
+
     return vueLifecycles.mount(props);
 }
 
-export const unmount = [
-    vueLifecycles.unmount,
-];
-
-function createDomElement() {
-    // Make sure there is a div for us to render into
-    let el = document.getElementById(id);
-
-    if (!el) {
-        el = document.createElement('div');
-        el.id = id;
-        document.body.appendChild(el);
-    }
-    return el;
+export function unmount(props) {
+    console.log('app4vue-C: unmount', props.globalEventDistributor);
+    return Promise.resolve();
 }

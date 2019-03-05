@@ -1,62 +1,51 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Portal Vue Cli"/>
-
-    <div style="margin: 1em; border: solid 1px black; float:left; width: calc(100% - 2em);">
-
-      <div class="app_box">
-        <div id="app4" >
-          App4
-        </div>
-
-      </div>
-
-      <div class="app_box">
-        <div id="appGame">
-          App - Game
-        </div>
-
-      </div>
-
-      <div class="app_box">
-        <div id="appBeta">
-          App - Beta
-        </div>
-      </div>
-
-      <div class="app_box">
-        <div id="appAlpha">
-          App - Alpha
-        </div>
-
-      </div>
-
-      <div class="app_box">
-        <div id="appCharlie">
-          App - Charlie
-        </div>
-
-      </div>
-
-      <div style="clear: both"></div>
+    <HeaderNav/>
+    <div>
+      <button @click="loadData">loadData</button>
+      <h4>loadAppConfig: {{ loadAppConfig }}</h4>
+      <h4>getMountedApps: {{ getMountedApps }}</h4>
+      <h4>getAppNames: {{ getAppNames }}</h4>
     </div>
-
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import * as singleSpa from 'single-spa'
 import init from './portal'
+import HeaderNav from './components/HeaderNav'
+import HelloWorld from './components/HelloWorld.vue'
+import { loadAppConfig } from './appLoader'
+
+singleSpa.getMountedApps()
+singleSpa.getAppNames()
 
 export default {
   name: 'app',
   components: {
+    HeaderNav,
     HelloWorld
   },
   mounted() {
-    console.log("App.vue: mounted");
     init();
+    console.log("App.vue: mounted");
+  },
+  data() {
+    return {
+      loadAppConfig: null,
+      getMountedApps: null,
+      getAppNames: null,
+    }
+  },
+  methods: {
+    loadData() {
+      this.loadAppConfig = JSON.stringify(loadAppConfig);
+      this.getMountedApps = singleSpa.getMountedApps();
+      this.getAppNames = singleSpa.getAppNames();
+
+      console.log(this.$route);
+    },
   }
 }
 </script>
@@ -71,10 +60,24 @@ export default {
   margin-top: 60px;
 }
 
+.app_container {
+  margin: 1em;
+  border: solid 1px black;
+  float: left;
+  width: calc(100% - 2em);
+}
+
 .app_box {
   margin: 0.5em;
   border: solid 1px black;
   width: 400px;
   float: left;
+}
+
+.app_box > div {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: solid 1px black;
+  background-color: #116466;
 }
 </style>

@@ -1,15 +1,33 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button>Button</button>
+    <h2>{{ data }}</h2>
+    <button onclick="">Button</button>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods: {
+    getData() {
+      axios.get('/api/hello').then((data) => {
+        console.log('getData', data);
+        if(data) {
+          this.data = data.data;
+        }
+      })
+    }
+  },
+  data() {
+    return {
+      data: this.getData()
+    }
   }
 }
 </script>

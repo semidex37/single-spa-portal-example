@@ -1,4 +1,7 @@
-// require('es6-promise').polyfill()
+require('es6-promise').polyfill()
+
+const webpack = require('webpack')
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -6,6 +9,7 @@ function resolve (dir) {
 module.exports = {
 
   devServer: {
+    disableHostCheck: true,
     proxy: {
       "/app4": {
         target: "http://localhost:9004",
@@ -22,12 +26,25 @@ module.exports = {
       "/appCharlie": {
         target: "http://localhost:9007",
         pathRewrite: {"^/appCharlie": ""}
+      },
+      "/api": {
+        target: "http://localhost:3001",
+        pathRewrite: {"^/api": ""}
       }
     }
   },
   configureWebpack: {
+    entry: {
+      'es-bundle': './src/esBundle.js'
+    },
+    plugins: [
+      new webpack.DefinePlugin({
+        'zoneEnableCrossContextCheck': 'true'
+      })
+    ]
+
     // entry: [
-    //   './src/main.js',
+    //   './src/index.js',
     //   '@babel/polyfill'
     // ],
     // solve: {
