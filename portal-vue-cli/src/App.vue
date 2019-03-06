@@ -18,9 +18,6 @@ import HeaderNav from './components/HeaderNav'
 import HelloWorld from './components/HelloWorld.vue'
 import { loadAppConfig } from './appLoader'
 
-singleSpa.getMountedApps()
-singleSpa.getAppNames()
-
 export default {
   name: 'app',
   components: {

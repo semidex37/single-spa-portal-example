@@ -34,23 +34,6 @@ module.exports = {
     }
   },
   configureWebpack: {
-    entry: {
-      'es-bundle': './src/esBundle.js'
-    },
-    plugins: [
-      new webpack.DefinePlugin({
-        'zoneEnableCrossContextCheck': 'true'
-      })
-    ]
 
-    // entry: [
-    //   './src/index.js',
-    //   '@babel/polyfill'
-    // ],
-    // solve: {
-    //   alias: {
-    //     '@': resolve('src')
-    //   },
-    // }
   }
 }
