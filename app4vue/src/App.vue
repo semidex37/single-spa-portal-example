@@ -1,5 +1,9 @@
 <template>
   <div id="app4">
+    <div id="nav">
+      <a href="#/app4">App 4</a> |
+      <a href="#/app5">App 5</a>
+    </div>
     <img src="./assets/logo.png">
     <HelloWorld msg="App4 - Default"/>
   </div>

@@ -37,6 +37,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
+  console.log("router.beforeEach");
 
   const appNames = singleSpa.getAppNames();
   // console.log('appNames:', appNames);

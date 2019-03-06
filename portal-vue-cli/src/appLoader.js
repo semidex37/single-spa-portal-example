@@ -51,7 +51,7 @@ export async function appLoader(apps) {
 
   for(let i in apps) {
     let base = apps[i].base;
-    let config = _.extend(loadAppConfig[base], apps[i]);
+    let config = _.extend(_.clone(loadAppConfig[base]), apps[i]);
     let name = config.name;
 
 
