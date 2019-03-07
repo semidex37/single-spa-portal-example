@@ -6,8 +6,9 @@ export function hashPrefix(prefix) {
     }
 }
 
-export async function loadApp(name, hash, appURL, storeURL, globalEventDistributor) {
-    let storeModule = {}, customProps = {globalEventDistributor: globalEventDistributor};
+export async function loadApp(name, hash, appURL, storeURL, customProps) {
+    let storeModule = {};
+    let globalEventDistributor = customProps.globalEventDistributor;
 
     // try to import the store module
     try {

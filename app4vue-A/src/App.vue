@@ -1,17 +1,20 @@
 <template>
   <div id="appGame">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="App4 - appGame"/>
+    <!--<img src="./assets/logo.png">-->
+    <!--<HelloWorld msg="App4 - appGame - A"/>-->
+    <GameList></GameList>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import GameList from './components/GameList'
 
 export default {
   name: 'appGame',
   components: {
-    HelloWorld
+    HelloWorld,
+    GameList
   }
 }
 </script>

@@ -5,14 +5,15 @@
     <div class="app_container">
 
       <div class="app_box">
-        <h4>app4appCharlie</h4>
-        <div id="app4appCharlie"></div>
+        <h4>쇼핑 목록 (A)</h4>
+        <div id="app4appGame"></div>
       </div>
 
       <div class="app_box">
-        <h4>app4appGame</h4>
-        <div id="app4appGame"></div>
+        <h4>장바구니 (C)</h4>
+        <div id="app4appCharlie"></div>
       </div>
+
 
     </div>
 
@@ -31,14 +32,15 @@ export default {
     console.log("App4:mounted");
 
     // 'appGame', 'appCharlie'
+
     appLoader([
       {
         base: 'appGame',
-        globalEventDistributor: 'app4appGame'
+        appName: 'app4appGame'
       },
       {
         base: 'appCharlie',
-        globalEventDistributor: 'app4appCharlie'
+        appName: 'app4appCharlie'
       },
     ])
   }

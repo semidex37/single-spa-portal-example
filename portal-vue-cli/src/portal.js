@@ -44,6 +44,36 @@ async function init() {
     singleSpa.start();
 }
 
+// window.addEventListener('single-spa:before-routing-event', e => {
+//     const originalEvent = e.detail;
+//     console.log('[single-spa]:before-routing-event', originalEvent);
+// });
+//
+// window.addEventListener('single-spa:routing-event', e => {
+//     const originalEvent = e.detail;
+//     console.log('[single-spa]:routing-event', originalEvent);
+// });
+//
+// window.addEventListener('single-spa:app-change', evt => {
+//     const originalEvent = evt.detail;
+//     const mountedApps = singleSpa.getMountedApps();
+//     console.log('[single-spa]:app-change', mountedApps.length, mountedApps, originalEvent);
+// });
+//
+// window.addEventListener('single-spa:no-app-change', evt => {
+//     const originalEvent = evt.detail;
+//     const mountedApps = singleSpa.getMountedApps();
+//     console.log('[single-spa]:no-app-change', mountedApps.length, mountedApps, originalEvent);
+// });
+//
+// window.addEventListener('single-spa:before-first-mount', () => {
+//     console.log('[single-spa]:before-first-mount - Suggested use case: remove a loader bar that the user is seeing right before the first app will be mounted');
+// });
+//
+// window.addEventListener('single-spa:first-mount', () => {
+//     console.log('[single-spa]:first-mount - Suggested use case: log the time it took before the user sees any of the apps mounted');
+// });
+
 //init();
 
 export default init;

@@ -1,6 +1,6 @@
 import 'es6-promise/auto';
-import 'core-js/es7/object';
-import 'core-js/es7/array';
+// import 'core-js/es7/object';
+// import 'core-js/es7/array';
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'

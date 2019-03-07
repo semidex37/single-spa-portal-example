@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import singleSpaVue from 'single-spa-vue';
 import App from './App.vue'
+import {createStore} from './store'
 
 Vue.config.productionTip = false;
 
@@ -16,18 +17,21 @@ Vue.config.productionTip = false;
 // });
 
 export function bootstrap(props) {
-    console.log('app4vue-A: bootstrap', props.globalEventDistributor);
+    console.log('[0] app4vue-A: bootstrap', props);
     return Promise.resolve();
 }
 
 export function mount(props) {
-    console.log('app4vue-A: mount', props.globalEventDistributor);
+    console.log('app4vue-A: mount!!!', props);
+
+    const store = createStore(props.options, props.globalEventDistributor);
     const vueLifecycles = singleSpaVue({
         Vue,
         appOptions: {
-            el: '#' + props.globalEventDistributor,
+            el: '#' + props.appName,
+            store,
             render: h => {
-                console.log("app4vue-A: vue: render:" + props.globalEventDistributor);
+                console.log("app4vue-A: vue: render:" + props);
                 return h(App);
             }
         }
@@ -38,7 +42,7 @@ export function mount(props) {
 }
 
 export function unmount(props) {
-    console.log('app4vue-A: unmount', props.globalEventDistributor);
+    console.log('app4vue-A: unmount', props);
     return Promise.resolve();
 }
 

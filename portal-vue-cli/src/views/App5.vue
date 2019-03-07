@@ -33,19 +33,13 @@ export default {
     appLoader([
       {
         base: 'appCharlie',
-        name: 'appDelta',
+        appName: 'app5appDelta',
         hash: '/app5',
-        globalEventDistributor: 'app5appDelta'
       },
-      // {
-      //   base: 'appBeta',
-      //   globalEventDistributor: 'app5appDelta'
-      // },
       {
         base: 'app4',
-        name: 'app45',
+        appName: 'app5app4',
         hash: '/app5',
-        globalEventDistributor: 'app5app4'
       }
     ])
   }

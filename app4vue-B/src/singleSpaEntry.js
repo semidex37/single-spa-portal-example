@@ -6,40 +6,30 @@ import store from './store'
 
 Vue.config.productionTip = false;
 
-const time = new Date().getTime()
-const id = 'appBeta'
-
-const vueLifecycles = singleSpaVue({
-    Vue,
-    appOptions: {
-        el: '#' + id,
-        router,
-        store,
-        render: h => h(App)
+export function bootstrap(props) {
+    console.log('app4vue-B: bootstrap', props.appName);
+    return Promise.resolve();
 }
-});
-
-export const bootstrap = [
-    vueLifecycles.bootstrap,
-];
 
 export function mount(props) {
-    createDomElement();
+    console.log('app4vue-B: mount', props.appName);
+    const vueLifecycles = singleSpaVue({
+        Vue,
+        appOptions: {
+            el: '#' + props.appName,
+            router,
+            store,
+            render: h => {
+                console.log("app4vue-B: vue: render:" + props.appName);
+                return h(App);
+            }
+        }
+    });
+
     return vueLifecycles.mount(props);
 }
 
-export const unmount = [
-    vueLifecycles.unmount,
-];
-
-function createDomElement() {
-    // Make sure there is a div for us to render into
-    let el = document.getElementById(id);
-
-    if (!el) {
-        el = document.createElement('div');
-        el.id = id;
-        document.body.appendChild(el);
-    }
-    return el;
+export function unmount(props) {
+    console.log('app4vue-B: unmount', props.appName);
+    return Promise.resolve();
 }

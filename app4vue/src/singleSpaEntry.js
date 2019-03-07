@@ -5,18 +5,18 @@ import App from './App.vue'
 Vue.config.productionTip = false;
 
 export function bootstrap(props) {
-    console.log('app4vue: bootstrap', props.globalEventDistributor);
+    console.log('app4vue: bootstrap', props.appName);
     return Promise.resolve();
 }
 
 export function mount(props) {
-    console.log('app4vue: mount', props.globalEventDistributor);
+    console.log('app4vue: mount', props.appName);
     const vueLifecycles = singleSpaVue({
         Vue,
         appOptions: {
-            el: '#' + props.globalEventDistributor,
+            el: '#' + props.appName,
             render: h => {
-                console.log("app4vue: vue: render:" + props.globalEventDistributor);
+                console.log("app4vue: vue: render:" + props.appName);
                 return h(App);
             }
         }
@@ -26,6 +26,6 @@ export function mount(props) {
 }
 
 export function unmount(props) {
-    console.log('app4vue: unmount', props.globalEventDistributor);
+    console.log('app4vue: unmount', props.appName);
     return Promise.resolve();
 }

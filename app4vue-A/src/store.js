@@ -17,3 +17,5 @@ export const createStore = function(options, globalEventDistributor) {
     }
   })
 }
+
+// export default createStore();
