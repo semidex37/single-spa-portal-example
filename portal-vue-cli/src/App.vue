@@ -41,7 +41,7 @@ export default {
       this.getMountedApps = singleSpa.getMountedApps();
       this.getAppNames = singleSpa.getAppNames();
 
-      console.log(this.$route);
+      console.log('this.$route', this.$route);
     },
   }
 }

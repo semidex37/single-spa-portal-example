@@ -33,14 +33,18 @@ export default {
 
     // 'appGame', 'appCharlie'
 
+    const routeBaseUrl = this.$route.path;
+
     appLoader([
       {
         base: 'appGame',
-        appName: 'app4appGame'
+        appName: 'app4appGame',
       },
       {
         base: 'appCharlie',
-        appName: 'app4appCharlie'
+        appName: 'app4appCharlie',
+        routeBaseUrl,
+        // initPageUrl: 'aboutCharlie'
       },
     ])
   }

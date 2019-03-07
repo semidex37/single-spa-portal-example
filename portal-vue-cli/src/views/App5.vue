@@ -5,14 +5,15 @@
     <div class="app_container">
 
       <div class="app_box">
-        <h4>app5appDelta</h4>
-        <div id="app5appDelta"></div>
-      </div>
-
-      <div class="app_box">
         <h4>app5app4</h4>
         <div id="app5app4"></div>
       </div>
+
+      <div class="app_box">
+        <h4>장바구니 (C)</h4>
+        <div id="app5appDelta"></div>
+      </div>
+
 
     </div>
   </div>
@@ -30,11 +31,15 @@ export default {
   mounted() {
     console.log("App4:mounted");
 
+    const routeBaseUrl = this.$route.path;
+
     appLoader([
       {
         base: 'appCharlie',
         appName: 'app5appDelta',
+        routeBaseUrl,
         hash: '/app5',
+        initPageUrl: 'aboutCharlie'
       },
       {
         base: 'app4',

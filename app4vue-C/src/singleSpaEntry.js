@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import singleSpaVue from 'single-spa-vue';
 import App from './App.vue'
-import router from './router'
+import {createRouter} from './router'
 import {createStore} from './store'
 
 Vue.config.productionTip = false;
@@ -15,6 +15,7 @@ export function mount(props) {
     console.log('app4vue-C: mount', props.appName);
 
     const store = createStore(props.options, props.globalEventDistributor);
+    const router = createRouter(props.options.routeBaseUrl);
     const vueLifecycles = singleSpaVue({
         Vue,
         appOptions: {

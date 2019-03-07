@@ -4,6 +4,14 @@
     <!--<HelloWorld msg="Welcome to Your Vue.js App - Charlie"/>-->
 
     <div class="basketsContainer">
+
+      <template v-if="baskets.length === 0">
+        <div class="emptyBasket">
+          Empty Basket
+        </div>
+
+      </template>
+
       <template v-for="item in baskets">
         <div class="basketItem">
           <img :src="item.img">
@@ -66,6 +74,10 @@ export default {
 
   .basketItem img {
     padding: 0.2em;
+  }
+
+  .emptyBasket {
+    margin: 1em;
   }
 
 </style>
